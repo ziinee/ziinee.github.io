@@ -1,7 +1,7 @@
 ---
 layout: post
-title: 무료 다국어 사전 Glosbe API 사용하기
-date: 2015-08-27 02:30 +0900
+title: [BOOK:20160322-0324] 벤츠 타는 프로그래머
+date: 2016-04-05 11:46 +0900
 category: book
 tags: 벤츠타는-프로그래머 프로그래밍을-위한-조언
 ---
