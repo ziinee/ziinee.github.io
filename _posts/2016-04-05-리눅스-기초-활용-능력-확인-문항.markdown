@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 리눅스 기초 활용 능력 확인 문항
-date: 2016-04-05 13:17 +0900
+date: 2016-04-05 13:51 +0900
 category: linux
 tags: 리눅스 활용문제
 ---
