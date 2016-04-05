@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ≪모던 웹 디자인을 위한 HTML5+CSS3 입문≫  
+title: ≪모던 웹 디자인을 위한 HTML5+CSS3 입문≫  (1) 웹
 date: 2016-04-05 13:47 +0900
 category: book
 tags: HTML5 CSS HTML5+CSS3 웹-페이지-레이아웃
@@ -8,7 +8,7 @@ tags: HTML5 CSS HTML5+CSS3 웹-페이지-레이아웃
 
 
 [20160404-0406]
-모던 웹 디자인을 위한 HTML5+CSS3 입문
+모던 웹 디자인을 위한 HTML5+CSS3 입문 (1) 웹
 
 
 ## 웹 페이지 레이아웃
