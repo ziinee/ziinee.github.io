@@ -1,10 +1,13 @@
 ---
 layout: post
-title: ≪HTML5+CSS3입문≫ (2)스마트폰
+title: ≪모던 웹 디자인을 위한 HTML5+CSS3 입문≫ (2)스마트폰
 date: 2016-04-05 15:55 +0900
 category: HTML5+CSS3
 tags: HTML5+CSS3 HTML5 CSS3 모바일 스마트폰 스마트폰-레이아웃
 ---
+
+[20160404-0406]
+모던 웹 디자인을 위한 HTML5+CSS3 입문 (2) 스마트폰
 
 ## 모바일 웹 개발 주의사항
 
