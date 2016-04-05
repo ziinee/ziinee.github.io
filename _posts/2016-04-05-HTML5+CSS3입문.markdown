@@ -1,0 +1,118 @@
+---
+layout: post
+title: ≪모던 웹 디자인을 위한 HTML5+CSS3 입문≫  
+date: 2016-04-05 13:47 +0900
+category: book
+tags: HTML5 CSS HTML5+CSS3 웹-페이지-레이아웃
+---
+
+
+[20160404-0406]
+모던 웹 디자인을 위한 HTML5+CSS3 입문
+
+
+## 웹 페이지 레이아웃
+
+    <!DOCTYPE html>
+    <html lang="en" xmlns ="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset ="utf-8" />
+        <title >웹 페이지 레이아웃 </title>
+        <!--초기화-->
+        <style ></style>
+        <!--초기화-->
+        <!--헤더-->
+        <style ></style>
+        <!--헤더-->
+        <!--메뉴(1)-->
+        <style ></style>
+        <!--메뉴(1)-->
+        .
+        .
+        .
+        <!--푸터-->
+        <style ></style>
+        <!--푸터-->
+    </head>
+    <body>
+        <header id ="main_header">
+            <hgroup id="title"></ hgroup>
+            <nav id="main_gnb"></ nav> <!-- global navigation bar -->
+            <nav id="main_lnb"></ nav> <!-- local navigation bar -->
+        </header >
+        <div id ="content">
+            <section id="main_section">
+                <article class="main_article"></ article>
+                <article class="main_article"></ article>
+                <article class="main_article"></ article>
+            </section>
+            <section id="main_aside"></ section>
+        </div >
+        <footer id ="main_footer">
+            <address> Website Layout Basic</address >
+        </footer >
+    </body>
+</html>
+
+
+
+## 사이드 탭바 구성
+
+    <!DOCTYPE html>
+
+    <html lang="en" xmlns ="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta charset ="utf-8" />
+        <title >사이드 탭바 구성 </title>
+        <!-- 사이드 -->
+        <style >
+            /* 첫 번째 탭 */
+            input:nth-of-type(1) {
+                display: none;
+            }
+            input:nth-of-type(1) ~ div:nth-of-type(1) {
+                display: none;
+            }
+            input:nth-of-type(1):checked ~ div:nth-of-type(1) {
+                display: block;
+            }
+            /* 두 번째 탭 */
+            input:nth-of-type(2) {
+                display: none;
+            }
+            input:nth-of-type(2) ~ div:nth-of-type(2) {
+                display: none;
+            }
+            input:nth-of-type(2):checked ~ div:nth-of-type(2) {
+                display: block;
+            }
+        </style >
+    </head>
+    <body>
+        <aside id ="main_aside">
+            <input id="first" type ="radio" name ="tab" checked ="checked" />
+            <input id="second" type ="radio" name ="tab" />
+            <section class="buttons">
+                <label for="first"> First</ label>
+                <label for="second"> Second</ label>
+            </section>
+            <div class="tab_item">
+                <ul>
+                    <li>< a href="#">HTML5 Canvas </a></ li>
+                    <li>< a href="#">HTML5 Audio </a></ li>
+                    <li>< a href="#">HTML5 Video </a></ li>
+                    <li>< a href="#">HTML5 Semantic Web </a></ li>
+                </ul>
+            </div>
+            <div class="tab_item">
+                <ul>
+                    <li>< a href="#">CSS3 Transition </a></ li>
+                    <li>< a href="#">CSS3 Animation </a></ li>
+                    <li>< a href="#">CSS3 Border </a></ li>
+                    <li>< a href="#">CSS3  Box </a></ li>
+                </ul>
+            </div>
+        </aside >
+
+    </body>
+    </html>
