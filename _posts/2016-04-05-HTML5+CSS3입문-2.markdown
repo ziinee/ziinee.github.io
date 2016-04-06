@@ -4,10 +4,8 @@ title: ≪모던 웹 디자인을 위한 HTML5+CSS3 입문≫ (2)스마트폰
 date: 2016-04-05 15:55 +0900
 category: HTML5+CSS3
 tags: HTML5+CSS3 HTML5 CSS3 모바일 스마트폰 스마트폰-레이아웃
+workdate: 20160404-0406
 ---
-
-[20160404-0406]
-모던 웹 디자인을 위한 HTML5+CSS3 입문 (2) 스마트폰
 
 ## 모바일 웹 개발 주의사항
 
@@ -29,10 +27,8 @@ tags: HTML5+CSS3 HTML5 CSS3 모바일 스마트폰 스마트폰-레이아웃
     
 ## 뷰포트 meta 태그
 
-[안드로이드 meta 태그 설명 참조][1]
-[아이폰 meta 태그 설명 참조][2]
-[1]: http://developer.android.com/guide/webapps/targeting.html
-[2]: https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
+* [안드로이드 meta 태그 설명 참조][1]
+* [아이폰 meta 태그 설명 참조][2]
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximun-scale=1.0, minimum-scale=1.0, user-scalable=no, target-denitydpi=medium-dpi">
     
@@ -256,3 +252,9 @@ tags: HTML5+CSS3 HTML5 CSS3 모바일 스마트폰 스마트폰-레이아웃
         </div>
     </body>
     </html>
+
+
+
+[1]: http://developer.android.com/guide/webapps/targeting.html
+[2]: https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
+
