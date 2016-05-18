@@ -1,0 +1,511 @@
+
+읽기 좋은 자바스크립트 코딩 기법
+===
+---
+# part1 스타일 가이드라인
+코드를 작성한 사람에 관계없이 코드를 일관성 있게 작성할 수 있도록 돕기 위함
+
+* 코딩규칙
+프로그래밍 관례와 디렉터리 구조, 주석
+
+* 스타일 가이드라인
+소스 코드의 레이아웃
+
+* 유용한 툴
+코드 품질 검증 툴 스타일 사이드 라인에 매우 유용하다.
+	* JsLint
+	* JSHint
+
+## 1. 기본 포맷
+
+### 1.1 들여쓰기
+* 탭을 이용한 들여쓰기
+시스템 마다 탭의 크기를 다르게 표현하기 때문에 협업에 좋지 않다.
+
+* 공백을 이용한 들여쓰기
+2개/3개/8개 공백 중 한 가지 방식을 이용하여 들여쓰기
+실무에서는 2개와 8개의 절충안으로 4개를 사용
+(에디터에서 탭키를 여러개의 공백으로 입력되도록 설정하여 사용)
+
+### 1.2 문장종료
+명시적으로 세미콜론을 사용한다.
+
+### 1.3 줄 길이
+줄 길이 최대 80자는 다른 언어에서도 많이 사용하는 코딩 규칙
+* 자바 : 최대 줄 길이 80자, 주석 70자
+* 안드로이드 : 최대 줄 길이 100자
+* 파이썬 : 라인당 79자
+
+### 1.4 줄 바꿈
+최대 글자수에 도달하면 연산자 다음에 줄을 바꾸고 두단계 들여쓰기 한다.
+if문 안의 문장은 줄 바꿈과 무관하게 한 단계 들여쓰기
+변수를 다른 변수에 대입할 때 두번째 줄의 들여쓰기는 첫 번째 줄의 변수와 열을 맞춘다.
+
+### 1.5 빈 줄 넣기
+* 메서드 사이
+* 메서드 내 지역 변수와 첫 번째 문장 사이
+* 한 줄 또는 여러 줄 주석 전
+* 가독성을 높이기 위해 메서드 내에서 논리적으로 구분되는 곳
+
+### 1.6 이름 규칙
+사용하는 언어의 표준 라이브러리에서 따르는 이름 규칙을 사용해야 한다.
+대부분 낙타 표시법(camel casing)을 사용
+소문자로 시작하고 새로운단어를 사용할 때마다 첫 문자는 대문자로 입력하는 방식
+
+* 1.6.1 변수와 함수
+변수명은 낙타 표시법을 사용하여 명사로 시작
+함수명은 낙타 표시법을 사용하여 동사로 시작
+변수 이름만으로 데이터 타입을 알 수 있도록 만든다.
+의미 없는 변수명은 사용하지 않는다.
+  * can : 불린 값을 반환하는 함수
+  * has : 불린 값을 반환하는 함수
+  * is : 불린 값을 반환하는 함수
+  * get : 불린 이외의 값을 반환하는 함수
+  * set : 값을 저장하기 위해 사용하는 함수
+
+* 1.6.2 상수
+값이 변하는 변수와 초기 값이 설정되면 절대 변경 불가한 상수를 구분하려고 이름 규칙을 다르게 한다.
+상수는 모든 문자를 대문자로 쓰고, 단어가 바뀔 떄는 밑줄을 사용
+
+* 1.6.3 생성자
+생성자는 파스칼 표기법(Pascal Case)을 사용한다.
+낙타 표기법과 같지만 첫 글자를 대문자로 시작한다.
+생성자는 타입의 인스턴스를 만드는 데 사용되므로 이름은 명사로 짓는다.
+생성자를 변수나 함수와 구분할 수 있다.
+
+### 1.7 리터럴 값
+* 1.7.1 문자열
+큰따옴표와 작은따옴표에 기능적 차이가 없고, 모두 사용가능
+자바 : 문자열에 큰 따옴표만 지원
+구글 : 작은따옴표 사용을 권한다.
+코어 스타일 가이드 : 문자열에 큰 따옴표 사용을 선호
+여러 줄에 결친 문자열을 사용하기 보다는 문자열을 여러 개로 나눠 합치는 방법이 낫다.
+
+* 1.7.2 숫자
+`10.` 이나 `1.` 같은 포맷을 사용하지 않는다.
+
+* 1.7.4 null
+undefined와 다르다. null 값은 다음과 같이 한정된 곳에서만 사용
+  * 나중에 값을 할당할 변수를 초기화할 때
+  * 선언한 변수에 값이 할당되었는지 비교할 떄
+  * 인자 값으로 객체를 넘기는 함수를 호출할 때
+  * 함수를 호출한 곳에서 반환값으로 객체를 기대할 때
+사용하면 안되는 경우
+  * 함수의 인자 값을 확인하기 위해 null로 비교해서는 안된다.
+  * 초기화되지 않은 변수를 null로 비교해서는 안된다.
+
+* 1.7.4 undefined
+초기화되지 않은 변수는 초기 값으로 undefinde를 갖는다.
+`var person = null;` 과 같이 변수를 선언하면 변수가 선언되지 않았을 때만 typeof 연산자가 "undefined"를 반환한다고 생각할 수 있다.
+
+* 1.7.5 객체 리터럴
+```
+// 권장하지 않음
+var book = new Object();
+book.title = "Maintainable JavaScript";
+book.author = "Nicholas C. Zakas";
+```
+```
+// 권장하는 방법
+var book = {
+  title: "Maintainable JavaScript",
+  author : "Nicholas C. Zakas"
+};
+```
+
+* 1.7.6 배열 리터럴
+```
+// 권장하지 않음
+var colors = new Array("red", "green", "blue");
+var numbers = new Array(1, 2, 3, 4);
+```
+Array 생성자를 사용하는 것은 권장하지 않는다.
+```
+// 권장
+var colors = ["red", "green", "blue"];
+var numbers = [1, 2, 3, 4];
+```
+
+
+## 2. 주석
+
+### 2.1 한 줄 주석
+`// 한 줄 주석`
+* 주석을 입력하기 전, 한 줄을 비우고 시작하며 주석은 설명할 코드 바로 윗줄에 작성합니다. 들여쓰기 단계는 설명할 코드에 맞춥니다.
+* 한 줄 주석은 꼬리 주석을 입력할 때 사용합니다. 줄 끝에 입력하는 꼬리 주석은 적어도 한 단계 들여쓰기를 한 후에 입력합니다. 이 때 꼬리 주석도 최대 줄 길이를 넘으면 안 됩니다. 주석을 입력하기에 공간이 부족하면 코드 윗줄에 주석을 입력합니다.
+* 한 줄 주석은 코드에 주석 처리할 떄 사용합니다. 실제로 많은 에디터에서 코드를 주석 처리할 떄 자동으로 한 줄 주석으로 처리합니다.
+
+코드를 주석 처리할 때를 제외하고는, 연속으로 한 줄 주석을 사용하지 않는다.
+
+### 2.2 여러 줄 주석
+`/* 여러 줄 주석 */`
+주석의 들여쓰기는 설명할 코드의 들여쓰기 단계와 맞춥니다. 주석 이전에 빈줄을 추가한다. 
+한줄 주석으로 사용 하지만, 꼬리 주석은 여러 줄 주석으로 사용하지 않는다.
+
+### 2.3 주석 쓰기
+코드 자체로 충분히 설명 가능한 부분에는 주석을 쓰지 않는다.
+명확하지 않은 것에 대해 주석을 사용하고, 코드를 명확하게 해야 할 곳에 추가한다.
+* 이해하기 어려운코드
+* 오해하기 쉬운 코드 (다른 개발자가 오해하여 고치는 상황을 방지)
+* 특정 브라우저 핵
+
+### 2.4 문서화 주석
+JavaDoc 문서 포맷이 많이 쓰인다.
+`/** 문서화 주석**/` 항목마다 @를 앞에 붙인다.
+
+
+## 3장 문장과 표현식
+다음의 모든 복합문에서는 중괄호를 반드시 사용한다.
+* if
+* for
+* while
+* do ... while
+* try ... catch ... finally
+
+### 3.1 중괄호 넣기
+```
+if (condition){
+  doSomething();
+} else {
+  doSomethingElse();
+}
+```
+자바, jQuery 코어 스타일 가이드, 구글 자바스크립트 스타일 가이드 권장
+```
+if (condition)
+{
+  doSomething();
+}
+else
+{
+  doSomethingElse();
+}
+```
+비쥬얼 스튜디오에서 강제화 사용으로 C#에서 주로 사용
+권장하지 않는다.
+
+### 3.2 복합문에서의 공백
+```
+if(condition){
+  doSomething();
+}
+```
+가독성이 떨어짐, 간단함, Dojo 스타일가이드 권장
+
+```
+if (condition) {
+  doSomething();
+}
+```
+문장 타입과 조건문이 눈에 잘 들어온다.
+크락포드 코드 컨벤션, 구글 자바스크립트 스타일 가이드 권장
+```
+if ( condition ) {
+  doSomething();
+}
+```
+문장이 명확하고 가독성이 좋다.
+jQuery 코어 스타일 가이드 권장
+
+### 3.3 switch문
+다른언어에서는 기본 데이터 타입과 상수만 사용할 수 있지만
+자바스크립트에서는 어떤 타입이든 switch문에서 사용할 수 있고,  어떠한 표현식이든 case문에 들어갈 수 있다.
+
+* 3.3.1 들여쓰기
+
+* 3.3.2 다음 case 문까지 실행하는 switch문
+JsHint `/* falls through */`를 사용하면, 실수로 break 문을 빠뜨린게 아니라는 의마로, 경고 메세지를 출력하지 않는다
+작성자가 주석을 통해 의도적으로 사용했음을 명확하게 하면 허용해도 괜찮다.
+
+* 3.3.3 default 절
+`// no default ` 수행할 로직이 없을 경우 주석을 추가
+
+### 3.4 with 문
+객체 식별자를 명시하지 않아도 특정객체의 프로퍼티와 메서드를 마치 변수인 것처럼 사용하게 해줍니다.
+문법 에러 발생 확률이 놓아 사용하지 않는다.
+
+### 3.5 for 반복문
+
+### 3.6 for ... in 반복문
+객체의 프로퍼티를 수환할 때 사용, 프로퍼티를 순환하며 프로퍼티명을 반환
+객체가 소유한 인스턴스 프로퍼티만이 아니라
+상속받은 프로토타입의 프로퍼티도 반환하므로 **hasOwnProperty()** 메서드를 사용하여 현재 인스턴스의 프로퍼티만 걸러서 사용한다.
+배열은 for...in 순환을 사용하지 않는다. (Array의 프로토 타입에 추가한 내용, 배열에 값을 채우지 않았을 때 에러 발생)
+
+## 4장 변수, 함수, 연산자
+
+### 4.1 변수 선언
+모든 변수 선언은 변수가 선언된 위치와 상관없이 함수의 최상단으로 끌어올려 진다. ( 호이스트 hoist : 변수 선언이 함수 최상단으로 끌어올려 지는 것)
+자바스크립트에 블록 단위 변수 선언이라는 개념이 없다.
+따라서 변수를 함수 이곳 저곳에 선언하지 않고 최상단에서 한꺼번에 선언하는 스타일을 가장 많이 사용한다. (자바스크립트 엔진이 해석하는 방식대로 코드를 작성)
+
+크락포드 : 함수 상단에 하나의 var 문만 사용하는 것을 권장
+Dojo 스타일 가이드 : 관련있는 변수끼리만 하나의 var 문으로 선언하도록 권장
+
+하나의 var문을 사용하여 코드의 양을 줄이고, 사용자는 코드를 더 빨리 내려 받는다.
+```
+function doSomethingWithItems(items) {
+  var value   = 10,
+      result  = value + 10,
+      i,
+      len;
+
+  for (i=0; len=items.length; i < len; i++){
+    doSomething(items[i]);
+  }
+}
+```
+하나의 var 문으로 모든 변수를 선언
+변수는 한 줄당 하나만 선언
+할당 연산자는 열을 맞춘다.
+초기화하지 않을 변수는 변수 선언문 마지막에 선언
+
+
+### 4.2 함수 선언
+함수 선언도 변수 선언처럼 자바스크립트 엔진에 의해 끌어올려 진다.
+지역 함수는 변수 선언 이후에 선언할 것을 권장
+함수는 블록 안에서 선언하면 안된다.
+
+### 4.3 함수 호출문에 공백 넣기
+함수명과 괄호 사이에 아무런 공백도 입력하지 않는다. (복합문과 구분이 용이)
+
+### 4.4 함수 선언하고 바로 호출하기
+함수 호출을 명확하게 하기 위해서 함수 앞뒤에 괄호를 추가한다.
+
+* strict 모드
+`"use strict"`
+프라그마 (pragma) : 자바스크립트 전처리기에 내리는 명령
+ECMAScript5 자바스크립트 엔진 strict 모드로 전환 명령어로 전역으로 사용하지 않는다.
+
+### 4.5 동등 연산자
+`===` 와 `!===` 를 사용한다.
+
+### 4.6 eval()
+문자열로 된 자바스크립트 코드를 실행하는 함수로 보안상 취약하므로 사용하지 말 것
+Function 생성자, setTimeout(), setInterval() 을 사용하여 문자열을 실행하지 않는다.
+setTimeout(), setInterval() 은 함수를 이용하여 사용
+
+### 4.7 기본 래퍼 타입
+기본 래퍼 타입을 직접 사용하지 않는다.
+* String
+* Boolean
+* Number
+
+---
+# part2 프로그래밍 프랙티스
+
+스타일 가이드라인은 코드 외관에 중점
+프로그래밍 프랙티스(programming practices)는 코드결과에 중점
+이미 알려진 방법으로 코드를 작성할 수 있게 도와주는 역할
+디자인 패턴 : 소프트웨어 구조와 관련도니 무제를 다룬 프로그래밍 프랙티스
+
+## 5장 UI 레이어 느슨하게 연결하기
+
+* HTML : 페이지에서 데이터와 의미를 정의
+* CSS : 페이지의 스타일을 꾸민다.
+* 자바스크립트 : 페이지에 동작을 부여
+
+### 5.1 느슨한 연결이란?
+패턴이 해결하려는 문제는 강한연결 (강결합)
+컴포넌트를 느슨하게 연결한다는 말은 한 컴포넌트를 수정해도 다른 컴포넌트에 영향이 없는 것을 의미
+
+### 5.2 CSS에서 자바스크립트 분리하기
+CSS 표현식 expression() 함수 안에 자바스크립트 코드를 넣어 사용하는 것은 성능, 유지보수 모두에 좋지않다.
+IE9 부터는 지원하지 않는다.
+
+### 5.3 자바스크립트에서 CSS 분리하기
+모든 스타일 정보가 CSS에 있도록 한다.
+`element.style.cssText = "color: red; left: 10px; top:10px; visibility: hidden;"` 과 같이 사용하지 않는다
+
+```
+.reveal{
+  color: red;
+  left: 10px;
+  top: 10px;
+  visibility: visible;
+
+// 자바스크립트를 사용한 올바른 예
+element.clssName += "reveal";
+
+// HTML5를 사용한 올바른 예
+element.classList.add("reveal");
+
+// jQuery를 사용한 올바른 예
+$(element).addClass("reveal");
+```
+HTML 요소의 위치를 다른 HTML 요소를 기준으로 이동 하거나
+페이지 사이즈 조절시에는 스타일 프로퍼티를 직접 사용가능
+
+### 5.4 HTML에서 자바스크립트 분리하기
+
+1. `<button conClick="doSomething()" id="action-btn">Click Me</button>` 과 같이 사용하지 않는다.
+    ```
+    // 올바른 사용방법
+    function doSomething(){
+      // code
+    }
+
+    var btn = document.getElementById("action-btn");
+    btn.addEventListener("click", doSomething, false);
+
+    // IE8 이하 버전 addEventListener()를 지원하지 않으므로, 다음 함수가 필요하다.
+    function addListener(target, type, handler){
+      if (target.addEventListener){
+        target.addEventListener(type, handler, false);
+      } else if (target.attachEvent) {
+        target.attachEvent("on" + type, handler);
+      } else {
+        target["on" + type] = handler;
+      }
+    }
+
+    // jQuery 라이브러리 사용시 제공하는 메서드 사용
+    $("#action-btn").on("click", doSomething);
+    ```
+
+2. script 요소 안에 인라인 코드를 추가하지 않는다
+    자바스크립트는 모두 별도의 파일에 두어야 하고
+    인라인 자바스크립트 코드 역시 HTML 밖으로 빼야한다.
+    ```
+    <script>
+      doSomething();
+    </script>
+    ```
+
+### 5.5 자바스크립트에서 HTML 분리하기
+
+* 5.5.1 서버에서 가져오기
+    템플릿을 다른 곳에 두고 XMLHttpRequest를 이용해 마크업을 가져오기
+    ```
+    function loadDialog(name, oncomplete) {
+
+      var xhr = new XMLHttpRequest();
+      xhr.open("get", "/js/dialog/" + name, true);
+
+      xhr.onreadystatechange = function (){
+
+        if (xhr.readyState == 4 && xhr.status == 200) {
+
+          var div = document.getElementById("dlg-holder");
+          div.innerHTML = xhr.responseText;
+          oncomplete();
+
+        } else {
+          // handle error
+        }
+      };
+
+      xhr.send(null);
+    }
+
+    // jQuery
+    function loadDialog(name, oncolpete){
+      $("#dlg-holder").load("/js/dialog/" + name, oncomplete);
+    }
+    ```
+    성능을 위해서라도 당장 사용하지 않을 큰 용량의 마크업은 메모리나 DOM에 추가해서는 안된다.
+
+* 5.5.2 간단한 클라이언트 사이드 템플릿
+    크기가 작은 마크업에 사용
+    템플릿은 마크업이 있는곳에 정의하고 자바스크립트가 HTML 페이지에서 바로 가져다 쓰는 방법
+    1. 템플릿을 HTML 주석으로 추가
+    ```
+    <ul id="myList"><!-- <li id="item%s"><a href="%s">%s</a></li> -->
+    <li><a href="/item/1">First item></a></li>
+    <li><a href="/item/2">Second item></a></li>
+    <li><a href="/item/3">Third item></a></li>
+    </ul>
+
+    function addItem(url, text){
+    var mylist         = documetn.getElementById("mylist");
+        templateText   = mylist.firstChild.nodeValue,
+        result         = sprintf(templete, url, text);
+
+    div.innerHTML = result;
+    mylist.insertAdjacentHTML("beforeend", result);
+    }
+
+    // 함수 사용
+    addItem("/item/4", "Fourth item");
+
+    ```
+    2. script 요소를 이용해 사용자 타입 프로퍼티를 만든다.
+    ```
+    <script type="text/x-my-template" id="list-item">
+    <li><a href="%s">%s</a></li>
+    </script>
+
+    function addItem(url, text){
+    var mtlist        = document.getElementById("mylist"),
+        script        = document.getElementById("list-item"),
+        templateText  = script.text,
+        reseult       = sprintf(template, url, text),
+        div           = document.createElement("div");
+
+    div.innerHTML = result.replace(/^\s*/, "");
+    list.appendChild(div.firstChild);
+    }
+
+    // 함수 사용
+    addItem("/item/4", "Fourth item");
+    ```
+
+* 5.5.3 복잡한 클라이언트 사이드 템플릿
+Handlebars 솔루션
+대체할 문자열을 두 개의 중괄호로 표시
+```
+<li><a href="{{url}}">{{text}}</a></li>
+```
+
+
+
+## 6장 전역 선언 방지
+
+### 6.1 전역의 문제점
+### 6.2 실수에 의한 전역 선언
+### 6.3 One-Global 접근법
+### 6.4 Zero-Global 접근법
+
+## 7장 이벤트 처리
+
+### 7.1 고전적인 방법
+### 7.2 규칙 1. 애플리케이션 로직을 분리한다.
+### 7.2 규칙 2. 이벤트 객체를 바로 전달하지 않는다.
+
+## 8장 null 비교 금지
+
+### 8.1 기본 데이터 타입 알아내기
+### 8.2 객체 참조 타입 알아내기
+### 8.3 프로퍼티 알아내기
+
+## 9장 코드에서 구성 데이터 분리하기
+
+### 9.1 구성 데이터란?
+### 9.2 구성 데이터 분리하기
+### 9.3 구성 데이터 저장하기
+
+## 10장 사용자 에러 던지기
+
+## 11장 객체의 변경 권한
+
+## 12장 브라우저 탐지
+
+
+
+# part 3 자동화
+
+## 13장 파일과 디렉터리 구조
+
+## 14장 앤트
+## 15장 유효성 검사
+## 16장 파일 합치기와 굽기
+## 17장 최소화와 압축
+## 18장 문서화
+## 19장 테스트 자동화
+## 20장 통합하기
+
+
+# Appendix 부록
+
+## A 자바스크립트 스타일 가이드
+
