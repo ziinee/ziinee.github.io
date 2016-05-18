@@ -8,7 +8,7 @@ tags: javascript style
 
 읽기 좋은 자바스크립트 코딩 기법
 ===
----
+
 # part1 스타일 가이드라인
 코드를 작성한 사람에 관계없이 코드를 일관성 있게 작성할 수 있도록 돕기 위함
 
@@ -250,6 +250,7 @@ JsHint `/* falls through */`를 사용하면, 실수로 break 문을 빠뜨린�
 Dojo 스타일 가이드 : 관련있는 변수끼리만 하나의 var 문으로 선언하도록 권장
 
 하나의 var문을 사용하여 코드의 양을 줄이고, 사용자는 코드를 더 빨리 내려 받는다.
+
 ```
 function doSomethingWithItems(items) {
   var value   = 10,
@@ -262,6 +263,7 @@ function doSomethingWithItems(items) {
   }
 }
 ```
+
 하나의 var 문으로 모든 변수를 선언
 변수는 한 줄당 하나만 선언
 할당 연산자는 열을 맞춘다.
@@ -321,7 +323,9 @@ CSS 표현식 expression() 함수 안에 자바스크립트 코드를 넣어 사
 IE9 부터는 지원하지 않는다.
 
 ### 5.3 자바스크립트에서 CSS 분리하기
+
 모든 스타일 정보가 CSS에 있도록 한다.
+
 `element.style.cssText = "color: red; left: 10px; top:10px; visibility: hidden;"` 과 같이 사용하지 않는다
 
 ```
@@ -413,9 +417,12 @@ HTML 요소의 위치를 다른 HTML 요소를 기준으로 이동 하거나
     성능을 위해서라도 당장 사용하지 않을 큰 용량의 마크업은 메모리나 DOM에 추가해서는 안된다.
 
 * 5.5.2 간단한 클라이언트 사이드 템플릿
+
     크기가 작은 마크업에 사용
     템플릿은 마크업이 있는곳에 정의하고 자바스크립트가 HTML 페이지에서 바로 가져다 쓰는 방법
+    
     1. 템플릿을 HTML 주석으로 추가
+    
     ```
     <ul id="myList"><!-- <li id="item%s"><a href="%s">%s</a></li> -->
     <li><a href="/item/1">First item></a></li>
@@ -436,7 +443,9 @@ HTML 요소의 위치를 다른 HTML 요소를 기준으로 이동 하거나
     addItem("/item/4", "Fourth item");
 
     ```
+    
     2. script 요소를 이용해 사용자 타입 프로퍼티를 만든다.
+    
     ```
     <script type="text/x-my-template" id="list-item">
     <li><a href="%s">%s</a></li>
@@ -458,8 +467,10 @@ HTML 요소의 위치를 다른 HTML 요소를 기준으로 이동 하거나
     ```
 
 * 5.5.3 복잡한 클라이언트 사이드 템플릿
+
 Handlebars 솔루션
 대체할 문자열을 두 개의 중괄호로 표시
+
 ```
 <li><a href="{{url}}">{{text}}</a></li>
 ```
